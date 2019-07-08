@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Discount Monitor Real-Time</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Quantity</th>
+            <th>Amount </th>
+            <th>Discount </th>
+            <th>Total</th>
+            <th>Discounted</th>
+            <th>Net Total</th>
+        </tr>
+        <tr>
+            <td><input type="number" id="qty"  max="1000" value="1" onchange="result()"></td>
+            <td><input type="number" id="amnt" max="10000" onchange="result()"></td>
+            <td><input type="number" id="disc" max="100" onchange="result()"></td>
+            <td><p id="rslt">0.00</p></td> <!--Total Show  -->
+            <td><input type="number" readonly value="0.00"  id="disco"></td> <!-- discounted   --> 
+            <td><p id="net"></p></td>        <!--  net total  -->
+        </tr>
+    </table>
+    <script>
+        function result(){
+            var qty = document.getElementById('qty').value;
+            var amnt = document.getElementById('amnt').value;
+            var rslt = document.getElementById("rslt").innerHTML= qty * amnt;
+
+            var disc = Number(document.getElementById("disc").value) / 1;
+            var totalValue = (amnt * disc/100);
+            document.getElementById("disco").value = totalValue.toFixed(0);
+
+            console.log(val);
+            var val = (rslt - disco);
+            document.getElementById('net').value = val.toFixed(2);
+
+//            var val = rslt-disco;
+ //           var net = document.getElementById("net").value= val.toFixed(2);
+}
+</script>
+</body>
+</html>
